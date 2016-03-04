@@ -1,0 +1,94 @@
+buildscript {
+    ext {
+        springBootVersion = '1.2.6.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath('io.spring.gradle:dependency-management-plugin:0.5.2.RELEASE')
+        classpath('org.springframework:springloaded:1.2.0.RELEASE')
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'war'
+
+war {
+    baseName = 'burr-testing'
+    version = '0.0.1-SNAPSHOT'
+    archiveName "${baseName}.war"
+}
+
+idea {
+    module {
+        inheritOutputDirs = false
+        outputDir = file("$buildDir/classes/main/")
+    }
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    providedRuntime
+}
+
+dependencies {
+    compile project(':burr-views')
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile 'com.google.guava:guava:18.0+'
+    compile 'org.springframework:spring-context-support:4+'
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    compile("javax.servlet:javax.servlet-api:3.1.0")
+    compile("org.yaml:snakeyaml:1.8")
+    compile("javax.el:javax.el-api:3.0.0")
+    compile("com.squareup.retrofit:retrofit:1.9.0")
+    compile 'com.squareup.okhttp:okhttp:2.5.0'
+    compile 'org.springframework.boot:spring-boot-starter-test'
+    compile 'com.codeborne:selenide:3.0'
+    compile 'com.codeborne:phantomjsdriver:1.2.1'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.7'
+}
+
+test {
+    systemProperties = System.properties
+    systemProperty "phantomjs.binary.path", phantomjsPath()
+    testLogging {
+        events "failed", "standardError"
+    }
+    afterTest { desc, result ->
+        println "TESTED [${desc.className}] ${desc.name} ===${result.resultType}==="
+    }
+}
+
+bootRun {
+    systemProperties = System.properties
+}
+
+import org.apache.tools.ant.taskdefs.condition.Os
+def isWindows() {
+    return Os.isFamily(Os.FAMILY_WINDOWS)
+}
+
+def phantomjsPath() {
+    return "node_modules/.bin/${(isWindows() ? "phantomjs.cmd" : "phantomjs")}"
+}
+
+allprojects {
+springBoot {
+    mainClass = "workaround.gradle.application.plugin.needs.main.class"
+}
+
+}
