@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+</head>
+<body>
+
+<div th:fragment="mock (view_identifier, arguments)" >
+    <div th:class="${view_identifier}">
+        <h2 th:text="${view_identifier}" />
+        <p th:text="${arguments}" />
+    </div>
+</div>
+
+</body>
+</html>
