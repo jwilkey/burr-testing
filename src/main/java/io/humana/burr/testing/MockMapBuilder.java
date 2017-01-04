@@ -1,6 +1,6 @@
 package io.humana.burr.testing;
 
-import io.humana.burr.views.MapBuilder;
+import com.tentkeep.burrviews.MapBuilder;
 import org.mockito.Mockito;
 import org.springframework.stereotype.Component;
 

@@ -2,8 +2,8 @@ package io.humana.burr.testing;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-import io.humana.burr.views.FragmentRegistry;
-import io.humana.burr.views.ViewProvider;
+import com.tentkeep.burrviews.FragmentRegistry;
+import com.tentkeep.burrviews.ViewProvider;
 import org.mockito.Mockito;
 import org.springframework.core.io.ClassPathResource;
 import org.thymeleaf.context.AbstractContext;

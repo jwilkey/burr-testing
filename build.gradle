@@ -1,15 +1,9 @@
-allprojects {
-    repositories {
-        maven { url "https://jitpack.io" }
-    }
-}
-
 buildscript {
     ext {
         springBootVersion = '1.2.6.RELEASE'
     }
     repositories {
-        mavenCentral()
+        jcenter()
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
@@ -40,7 +34,10 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 repositories {
-    mavenCentral()
+    jcenter()
+    maven {
+        url  "http://dl.bintray.com/jwilkey/BurrViews"
+    }
 }
 
 configurations {
@@ -48,15 +45,15 @@ configurations {
 }
 
 dependencies {
-    compile 'com.github.humana-dec:burr-views:4a4b0822e3'
-    compile("org.springframework.boot:spring-boot-starter-web:1.3.3.RELEASE")
+    compile 'com.tentkeep:burr-views:0.2.0'
+    compile 'org.springframework.boot:spring-boot-starter-web:1.3.3.RELEASE'
     compile 'com.google.guava:guava:18.0'
     compile 'org.springframework:spring-context-support:4.2.5.RELEASE'
-    compile("org.springframework.boot:spring-boot-starter-thymeleaf:1.3.3.RELEASE")
-    compile("javax.servlet:javax.servlet-api:3.1.0")
-    compile("org.yaml:snakeyaml:1.8")
-    compile("javax.el:javax.el-api:3.0.0")
-    compile("com.squareup.retrofit:retrofit:1.9.0")
+    compile 'org.springframework.boot:spring-boot-starter-thymeleaf:1.3.3.RELEASE'
+    compile 'javax.servlet:javax.servlet-api:3.1.0'
+    compile 'org.yaml:snakeyaml:1.8'
+    compile 'javax.el:javax.el-api:3.0.0'
+    compile 'com.squareup.retrofit:retrofit:1.9.0'
     compile 'com.squareup.okhttp:okhttp:2.5.0'
     compile 'org.springframework.boot:spring-boot-starter-test:1.3.3.RELEASE'
     compile 'com.codeborne:selenide:3.0'
