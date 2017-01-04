@@ -1,4 +1,4 @@
-package io.humana.burr.testing;
+package com.tentkeep.burrtesting;
 
 import com.tentkeep.burrviews.MapBuilder;
 import org.mockito.Mockito;

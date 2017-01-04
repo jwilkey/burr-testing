@@ -1,4 +1,4 @@
-package io.humana.burr.testing;
+package com.tentkeep.burrtesting;
 
 import org.apache.http.NameValuePair;
 import org.junit.runner.RunWith;
@@ -8,7 +8,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
-import static io.humana.burr.testing.Burr.mockViewModel;
+import static com.tentkeep.burrtesting.Burr.mockViewModel;
 import static org.springframework.core.annotation.AnnotationUtils.findAnnotation;
 
 @RunWith(SpringJUnit4ClassRunner.class)

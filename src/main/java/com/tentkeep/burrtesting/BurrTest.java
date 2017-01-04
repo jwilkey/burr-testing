@@ -1,4 +1,4 @@
-package io.humana.burr.testing;
+package com.tentkeep.burrtesting;
 
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.WebIntegrationTest;

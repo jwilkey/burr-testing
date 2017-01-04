@@ -1,4 +1,4 @@
-package io.humana.burr.testing;
+package com.tentkeep.burrtesting;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;

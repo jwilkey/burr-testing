@@ -1,4 +1,4 @@
-package io.humana.burr.testing;
+package com.tentkeep.burrtesting;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
